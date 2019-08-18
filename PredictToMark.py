@@ -7,7 +7,11 @@ model = load_model("PredictModel.h5")
 
 character_list = ['1', '2', '3', 'b', 'c', 'm', 'n', 'v', 'x', 'z']
 img_path = 'unpredict/'
+if not os.path.exists(img_path):
+    os.makedirs(img_path)
 images_name = os.listdir(img_path)
+if not os.path.exists('predicted/'):
+    os.makedirs('predicted')
 for img_name in images_name:
     img_np = np.array(Image.open(img_path + img_name))
     img_pic = Image.open(img_path + img_name)

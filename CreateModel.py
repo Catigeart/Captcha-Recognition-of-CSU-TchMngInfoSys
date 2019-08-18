@@ -8,6 +8,8 @@ def Construct_Set(n, kind = 'train'):
     X_set = np.zeros((n, 1))
     character_list = ['1', '2', '3', 'b', 'c', 'm', 'n', 'v', 'x', 'z']
     Y_set = np.zeros((10, 1))
+    if not os.path.exists(kind + '_set/'):
+        os.makedirs(kind + '_set/')
     for i in range(0, 10):
         img_path = kind + '_set/' + character_list[i] + '/'
         images_name = os.listdir(img_path)
